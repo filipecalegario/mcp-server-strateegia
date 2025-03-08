@@ -15,14 +15,28 @@ This is a Model Context Protocol (MCP) server that integrates with the Strateegi
 
 ## Installation
 
-1. Clone this repository
-2. Install dependencies:
+1. Create the project structure:
+
+```bash
+mkdir -p strateegia-mcp-server/src
+cd strateegia-mcp-server
+```
+
+2. Create the files as described in this repository:
+   - `src/index.ts` (from the strateegia-server.ts content)
+   - `package.json`
+   - `tsconfig.json`
+   - `.env.example`
+   - `.gitignore`
+   - `README.md`
+
+3. Install dependencies:
 
 ```bash
 npm install
 ```
 
-3. Build the project:
+4. Build the project:
 
 ```bash
 npm run build
