@@ -124,8 +124,13 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
             };
         }
 
+        let labCount = 0;
+        let projectCount = 0;
+
         const projectsSummary = labs
             .map((item) => {
+                labCount++;
+                projectCount += item.projects.length;
                 return `Lab: ${item.lab.name} (ID: ${
                     item.lab.id
                 })\nProjects:\n${item.projects
@@ -136,7 +141,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
             })
             .join("\n\n");
 
-        const fullResponse = `Found ${labs.length} projects:\n\n${projectsSummary}`;
+        const fullResponse = `Found ${labCount} labs and ${projectCount} projects:\n\n${projectsSummary}`;
 
         return {
             content: [

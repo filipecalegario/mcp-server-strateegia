@@ -78,18 +78,26 @@ const labs: StrateegiaItemResponse[] = await fetchStrateegiaAPI(
 );
 
 if (labs.length === 0) {
-    console.log("No projects found");
+    console.log("No labs found");
 }
+
+let labCount = 0;
+let projectCount = 0;
 
 const projectsSummary = labs
     .map((item) => {
-        return `Lab: ${item.lab.name} (ID: ${item.lab.id})\nProjects:\n${item.projects.map((project) => {
-        return `- ${project.title} (ID: ${project.id})`;
+        labCount++;
+        projectCount += item.projects.length;
+        return `Lab: ${item.lab.name} (ID: ${
+            item.lab.id
+        })\nProjects:\n${item.projects
+            .map((project) => {
+                return `- ${project.title} (ID: ${project.id})`;
+            })
+            .join("\n")}`;
     })
-    .join("\n")}`;
-})
-.join("\n\n");
+    .join("\n\n");
 
-const fullResponse = `Found ${labs.length} projects:\n\n${projectsSummary}`;
+const fullResponse = `Found ${labCount} labs and ${projectCount} projects:\n\n${projectsSummary}`;
 
 console.log(fullResponse);
