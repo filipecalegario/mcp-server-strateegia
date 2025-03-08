@@ -4,6 +4,9 @@
   "description": "MCP server for Strateegia API integration",
   "type": "module",
   "main": "dist/index.js",
+  "bin": {
+    "strateegia-mcp-server": "dist/index.js"
+  },
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js"
