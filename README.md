@@ -1,56 +1,38 @@
-# Strateegia MCP Server
+# strateegia MCP Server
 
-This is a Model Context Protocol (MCP) server that integrates with the Strateegia API, allowing AI assistants like Claude to access and interact with your Strateegia projects.
+This is a Model Context Protocol (MCP) server that integrates with the strateegia API, allowing AI assistants like Claude or Cursor to access and interact with your strateegia projects.
 
 ## Features
 
-- List all accessible Strateegia projects
-- Get detailed information about specific projects
-- Access project data as MCP resources
+- List all accessible strateegia projects
+- Access detailed information about labs and projects
 
 ## Prerequisites
 
 - Node.js (v16 or higher)
-- A valid Strateegia API access token
+- A valid strateegia API key
 
-## Installation
+## For Development
 
-1. Create the project structure:
-
-```bash
-mkdir -p strateegia-mcp-server/src
-cd strateegia-mcp-server
-```
-
-2. Create the files as described in this repository:
-   - `src/index.ts` (from the strateegia-server.ts content)
-   - `package.json`
-   - `tsconfig.json`
-   - `.env.example`
-   - `.gitignore`
-   - `README.md`
-
-3. Install dependencies:
+1. Install dependencies:
 
 ```bash
 npm install
 ```
 
-4. Build the project:
+2. Build the project:
 
 ```bash
 npm run build
 ```
 
-## Usage
-
-1. Set your Strateegia access token as an environment variable:
+3. Set your strateegia API key as an environment variable:
 
 ```bash
-export STRATEEGIA_ACCESS_TOKEN=your_access_token_here
+export STRATEEGIA_API_KEY=your_api_key_here
 ```
 
-2. Start the server:
+4. Start the server:
 
 ```bash
 npm start
@@ -74,26 +56,36 @@ npm start
       "command": "node",
       "args": ["path/to/strateegia-mcp-server/dist/index.js"],
       "env": {
-        "STRATEEGIA_ACCESS_TOKEN": "your_access_token_here"
+        "STRATEEGIA_API_KEY": "your_api_key_here"
       }
     }
   }
 }
 ```
 
-4. Restart Claude for Desktop.
+### Connecting with Cursor
+
+1. Make sure you have [Cursor](https://cursor.ai/download) installed.
+2. Open Cursor and go to the settings page.
+3. Add a new MCP server with the following configuration:
+
+```json
+env STRATEEGIA_API_KEY=your_api_key_here node path/to/strateegia-mcp-server/dist/index.js
+```
+
+4. Restart Cursor
 
 ## Available Tools
 
 The server exposes the following MCP tools:
 
-- `list-projects`: Lists all accessible projects from your Strateegia account
-- `get-project-details`: Gets detailed information about a specific project (requires project ID)
+- `list-projects`: Lists all accessible projects and labs from your strateegia account
 
-## Available Resources
-
-- `strateegia://projects`: Lists all accessible projects
+## Contributing
+Contributions are welcome! Feel free to submit a Pull Request.
 
 ## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-MIT
+## Issues and Support
+If you encounter any issues or need support, please file an issue on the [GitHub repository](https://github.com/filipecalegario/strateegia-mcp-server/issues).

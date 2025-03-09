@@ -1,7 +1,7 @@
 {
   "name": "strateegia-mcp-server",
-  "version": "1.0.0",
-  "description": "MCP server for Strateegia API integration",
+  "version": "0.0.1",
+  "description": "MCP server for strateegia API integration",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
@@ -11,6 +11,9 @@
     "build": "tsc",
     "start": "node dist/index.js"
   },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^0.6.1",
     "zod": "^3.22.4"
