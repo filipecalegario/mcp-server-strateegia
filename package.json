@@ -1,6 +1,6 @@
 {
   "name": "strateegia-mcp-server",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "MCP server for strateegia API integration",
   "type": "module",
   "main": "dist/index.js",
